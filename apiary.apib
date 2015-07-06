@@ -3,24 +3,28 @@ HOST: http://api.betadeposit.ru/iphone/v1/
 
 # Gettable iOS2
 
-Polls is a simple API allowing consumers to view polls and vote in them.
 
-# Polls API Root [/]
+# Авторизация
 
-This resource does not have any attributes. Instead it offers the initial
-API affordances in the form of the links in the JSON body.
+## Подверждение аккаунта [/account_confirmations]
 
-It is recommend to follow the “url” link values,
-[Link](https://tools.ietf.org/html/rfc5988) or Location headers where
-applicable to retrieve resources. Instead of constructing your own URLs,
-to keep your client decoupled from implementation details.
+### Получить СМС-код [POST]
 
-## Retrieve the Entry Point [GET]
+для подтверждения Аккаунта или привязки номера телефона к Аккаунту "без регистрации"
+POST /account_confirmations
+
++ phone (string) - Номер телефона
+
++ Request (application/json)
+
+        {
+            "phone": "+79263460333"
+        }
 
 + Response 200 (application/json)
 
         {
-            "questions_url": "/questions"
+            "id": 123
         }
 
 ## Group Question
